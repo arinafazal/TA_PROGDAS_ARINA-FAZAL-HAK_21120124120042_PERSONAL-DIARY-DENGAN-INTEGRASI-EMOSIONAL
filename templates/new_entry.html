@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Diary Baru</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/new_entry.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{ url_for('index') }}">📖 My Diary</a>
+        <div class="ml-auto">
+            <a class="btn btn-outline-light" href="{{ url_for('index') }}">Back to Home</a>
+            <a class="btn btn-outline-danger ml-2" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Curhatan Baru</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class="alert-container mb-4">
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                            {{ message }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <!-- Form -->
+                        <form method="POST" action="{{ url_for('new_entry') }}">
+                            <div class="form-group">
+                                <label for="mood">Gimana perasaanmu?</label>
+                                <select name="mood" id="mood" class="form-control" required>
+                                    <option value="" disabled selected>-- Pilih moodmu --</option>
+                                    <option value="Happy">Happy 😊</option>
+                                    <option value="Sad">Sad 😔</option>
+                                    <option value="Excited">Excited 🤩</option>
+                                    <option value="Anxious">Anxious 😰</option>
+                                    <option value="Calm">Calm 😌</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Apa yang kamu pikirin?</label>
+                                <textarea 
+                                    name="content" 
+                                    id="content" 
+                                    rows="5" 
+                                    class="form-control" 
+                                    placeholder="Curcol sini..." 
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

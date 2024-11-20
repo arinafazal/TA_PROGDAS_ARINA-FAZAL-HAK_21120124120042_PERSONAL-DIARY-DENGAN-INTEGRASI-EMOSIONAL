@@ -1,0 +1,75 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #e2f1fd, #77d4ff);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-card {
+    width: 400px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text-container h3 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.welcome-text-container .welcome-text {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Group Styling */
+.form-group label {
+    font-weight: bold;
+    color: #343a40;
+    display: block; /* Pastikan label tampil di atas input */
+    margin-bottom: 5px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+/* Button Styling */
+.btn-primary {
+    font-weight: bold;
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 150px;
+    margin-top: 20px;
+    margin-left: auto; /* Rata tengah horizontal */
+    margin-right: auto;
+    display: block;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Text Center */
+.text-center a {
+    color: #007bff;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}

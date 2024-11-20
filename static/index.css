@@ -1,0 +1,109 @@
+body {
+    background: linear-gradient(135deg, #e3f2fd, #e1f5fe); 
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #4a4a4a;
+}
+
+.navbar {
+    background-color: #bbdefb; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar a.btn {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    background-color: #90caf9;
+    border: none;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.navbar a.btn:hover {
+    background-color: #64b5f6; 
+    color: #fff;
+}
+
+.welcome-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #42a5f5;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.entry-card {
+    background-color: #e3f2fd;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.entry-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #42a5f5 !important; /* Warna untuk teks mood */
+}
+
+.entry-card p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+.btn-danger {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    background-color: #64b5f6;
+    border: none;
+    color: #fff;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #42a5f5;
+    transform: scale(1.05);
+}
+
+.btn-outline-danger {
+    color: #fff !important;
+    border-color: #f44336 !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: #f44336 !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary {
+    background-color: #64b5f6;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-outline-primary:hover {
+    background-color: #42a5f5;
+}
+
+.no-entries {
+    color: #607d8b;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    text-align: center;
+}
