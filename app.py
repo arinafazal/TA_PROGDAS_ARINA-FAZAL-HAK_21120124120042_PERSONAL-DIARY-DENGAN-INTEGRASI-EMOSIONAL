@@ -40,9 +40,9 @@ class DiaryApp:
         Validates the registration form.
         """
         validation_rules = [
-            (not username.strip(), "Username tidak boleh kosong."),
-            (not self.is_valid_email(email), "Email tidak valid."),
-            (len(password) < self.MINIMAL_PW, f"Password harus minimal {self.MINIMAL_PW} karakter."),
+            (not username.strip()),
+            (not self.is_valid_email(email)),
+            (len(password) < self.MINIMAL_PW),
         ]
         for condition, message in validation_rules:
             if condition:
@@ -83,7 +83,6 @@ class DiaryApp:
                 content = request.form.get('content', '').strip()
 
                 if not mood or not content:
-                    flash('Kalau mau curhat harus lengkap, ga boleh ada yang kosong.', 'danger')
                     return redirect(url_for('new_entry'))
 
                 entry = {
