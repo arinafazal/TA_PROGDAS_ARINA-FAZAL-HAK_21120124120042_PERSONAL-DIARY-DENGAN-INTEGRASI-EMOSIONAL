@@ -10,23 +10,18 @@ from bson.objectid import ObjectId
 
 class DiaryApp:
     def __init__(self):
-        # Load .env variables
         dotenv_path = join(dirname(__file__), '.env')
         load_dotenv(dotenv_path)
 
-        # Flask initialization
         self.app = Flask(__name__)
-        self.app.secret_key = os.urandom(24)  # Secret key for session
+        self.app.secret_key = os.urandom(24)
 
-        # MongoDB Connection
         self.client = MongoClient(os.environ.get("MONGODB_URI"))
         self.db = self.client[os.environ.get("DB_NAME")]
 
-        # Constants
         self.MINIMAL_PW = 8
         self.EMAIL_REGEX = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
 
-        # Register Routes
         self.register_routes()
 
     def is_valid_email(self, email):
@@ -44,9 +39,7 @@ class DiaryApp:
             (not self.is_valid_email(email)),
             (len(password) < self.MINIMAL_PW),
         ]
-        for condition, message in validation_rules:
-            if condition:
-                return message
+
         return None
 
     def register_routes(self):
@@ -114,7 +107,7 @@ class DiaryApp:
                     session["user_id"] = str(user["_id"])
                     session["username"] = user["username"]
                     session["show_welcome"] = True
-                    flash(f'Selamat datang kembali, {user["username"]}!', 'success')  # Flash added
+                    flash(f'Selamat datang kembali, {user["username"]}!', 'success')
                     return redirect(url_for('index'))
 
                 flash('Login gagal. Hayo apa yang salah.', 'danger')
@@ -160,7 +153,7 @@ class DiaryApp:
             User logout route.
             """
             session.clear()
-            flash('Anda berhasil logout.', 'info')  # Flash added
+            flash('Anda berhasil logout.', 'info')
             return redirect(url_for('login'))
 
     def run(self, debug=True):
